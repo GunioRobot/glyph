@@ -1,4 +1,4 @@
-Copyright (c) 2010 **Fabio Cevasco**, <a href="http://www.h3rald.com">http://www.h3rald.com</a>  
+Copyright (c) 2010 **Fabio Cevasco**, <a href="http://www.h3rald.com">http://www.h3rald.com</a>
 
 
 <div class="code">

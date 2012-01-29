@@ -20,7 +20,7 @@ module Kernel
 	def file_load(file)
 		result = ""
 		File.open(file.to_s, 'r') do |f|
-			while l = f.gets 
+			while l = f.gets
 				result << l
 			end
 		end

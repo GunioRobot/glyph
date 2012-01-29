@@ -1,5 +1,5 @@
 
-Glyph is a _Rapid Document Authoring Framework_. 
+Glyph is a _Rapid Document Authoring Framework_.
 
 With Glyph, you can manage your documents tidily in _projects_ and generate deliverables in different formats such as HTML or PDF (through <a href="http://www.princexml.com/">Prince</a>).
 
@@ -20,7 +20,7 @@ Glyph comes with its very own macro system to perform a wide variety of advanced
 * Call macros from other macros (including snippets), avoiding mutual calls.
 * Include text files within other text files.
 * Include the value of any configuration setting (like author, title) in the document.
-* Filter input explicitly or implicitly (based on file extensions). 
+* Filter input explicitly or implicitly (based on file extensions).
 * Manage draft comments and todo items.
 * Provide a simple, less-verbose syntax to write XML code.
 
@@ -34,7 +34,7 @@ Glyph comes with its very own macro system to perform a wide variety of advanced
 
 <div class="section">
 <h2 id="h_3">Essential Glyph commands</h2>
-Glyph is 100% command line. Its interface resambles <a href="http://git-scm.com/">Git's</a> for its simplicity and power (thanks to the <a href="http://github.com/davetron5000/gli">gli</a> gem). Here are some example commands: 
+Glyph is 100% command line. Its interface resambles <a href="http://git-scm.com/">Git's</a> for its simplicity and power (thanks to the <a href="http://github.com/davetron5000/gli">gli</a> gem). Here are some example commands:
 
 * @glyph init@ -- to initialize a new Glyph project in the current (empty) directory.
 * @glyph add introduction.textile@ -- to create a new file called _introduction.textile_.
@@ -59,7 +59,7 @@ Format your documents using Textile or Markdown, and use Glyph Macros to do ever
 section[
   @title[Something about Glyph]
   txt[
-You can use Glyph macros in conjunction 
+You can use Glyph macros in conjunction
 with _Textile_ or _Markdown_ to
 produce HTML files effortlessly.
   ]
@@ -70,11 +70,11 @@ to generate HTML tags.
   section[
     @title[What about PDFs?]
     @id[pdf]
-Once you have a single, well-formatted HTML 
+Once you have a single, well-formatted HTML
 file, converting it to PDF is
-extremely easy with a 3rd-party 
+extremely easy with a 3rd-party
 renderer like =>[http://www.princexml.com|Prince].
-  ]   
+  ]
 ]
 </code>
 </pre>
@@ -89,16 +89,16 @@ renderer like =>[http://www.princexml.com|Prince].
 <div class="section">
   <h2 id="h_10">Something about Glyph</h2>
   <p>
-    You can use Glyph macros in conjunction with 
+    You can use Glyph macros in conjunction with
     <em>Textile</em> or <em>Markdown</em> to
     produce HTML files effortlessly.
   </p>
   <div class="section">
    <h3 id="pdf">What about PDFs?</h3>
    <p>
-     Once you have a single, well-formatted HTML 
+     Once you have a single, well-formatted HTML
      file, converting it to PDF is
-     extremely easy with a 3rd-party renderer 
+     extremely easy with a 3rd-party renderer
      like <a href="http://www.princexml.com">Prince</a>.
    </p>
    <p>

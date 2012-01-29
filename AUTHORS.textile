@@ -5,4 +5,3 @@ Special thanks to the following individuals who contributed to Glyph by reportin
 * <a href="http://koraktor.github.com">Sebastian Staudt</a> (koraktor)
 
 
-    

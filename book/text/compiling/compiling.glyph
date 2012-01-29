@@ -4,7 +4,7 @@ section[
 	p[By default, a Glyph project can be "compiled" into an HTML document. Additionally, Glyph can also be used to produce PDF documents through &[prince], and in future releases more output targets will be supported.]
 	section[
 		@title[HTML output]
-		p[To compile a Glyph project to an HTML document, use the #>[compile] within your Glyph project folder. Glyph parses the code[document.glyph] file (and all included files and snippets); if no errors are found, Glyph creates an HTML document in the code[/output/html] folder.] 
+		p[To compile a Glyph project to an HTML document, use the #>[compile] within your Glyph project folder. Glyph parses the code[document.glyph] file (and all included files and snippets); if no errors are found, Glyph creates an HTML document in the code[/output/html] folder.]
 		p[The name of the HTML file can be set in the configuration (\.$>[document.filename]).]
 	]
 	section[

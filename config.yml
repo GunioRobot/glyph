@@ -38,7 +38,7 @@
     :restrictions: []
   :coderay:
     # See options at http://coderay.rubychan.de/doc/classes/CodeRay/Encoders/HTML.html
-    :css: :class 
+    :css: :class
   :ultraviolet:
     :line_numbers: true
     :theme: 'lazy'

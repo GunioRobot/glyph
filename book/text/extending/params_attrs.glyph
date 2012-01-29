@@ -16,9 +16,9 @@ To access expanded values, use the following methods:
 * @attribute@ (or @attr@): Returns the expanded value of the attribute specified by name. Other attributes are not expanded.
 * @parameters@ (or @params@):  Returns an array of expanded parameters.
 * @attributes@ (or @attrs@):  Returns a hash of expanded attributes.
- 
+
 		]
-		
+
 	]
 	section[
 		@title[Accessing Raw Values]

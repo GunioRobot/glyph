@@ -5,13 +5,13 @@ The =>[&[yardoc]/Macro|@Glyph::Macro@] class also includes a few methods to chec
 	]
 
 	highlight[=ruby|
-macro :anchor do 
+macro :anchor do
   ident, title = @params
   macro_error "Bookmark '#{ident}' already exists" if bookmark? ident
   bookmark :id => ident, :title => title
   %{<a id="#{ident}">#{title}</a>}
 end
-	=] 
+	=]
 
 	txt[
 The @bookmark?@ method can be used to check the existance of a particular ID within the whole document, while the @bookmark@ method is used to store bookmark IDs and titles. In a similar way, you can use @header?@ and @header@ methods to check the existance of headers within the documents or store new ones.

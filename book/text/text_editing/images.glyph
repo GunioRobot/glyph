@@ -25,5 +25,5 @@ figure[example.png\|An example figure.
 		txt[Any attribute passed to the %>[image] or the %>[figure] is automatically passed to the underlying @<img>@ tag.]
 	]
 	note[In future releases, figures will be numbered automatically and included in a em[List of Figures] section.]
-] 
+]
 

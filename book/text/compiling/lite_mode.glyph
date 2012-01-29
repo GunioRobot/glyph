@@ -11,7 +11,7 @@ section[
 		&:[only_defined_through|can only be defined inside the source file, using the]
 		txt[
 &:[referenced_with_path|must be referenced with their absolute path, or a path relative to the current directory]
-This sort of "lite" mode comes with a few minor limitations: 
+This sort of "lite" mode comes with a few minor limitations:
 * Snippets &[only_defined_through] %>[snippet:].
 * Project configuration settings &[only_defined_through] %>[config:].
 * Custom macros &[only_defined_through] %>[macro:].

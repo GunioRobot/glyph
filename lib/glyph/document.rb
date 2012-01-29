@@ -10,7 +10,7 @@ module Glyph
 	class Document
 
 		ESCAPES = [
-			['\\]', ']'], 
+			['\\]', ']'],
 			['\\[', '['],
 			['\\=', '='],
 			['\\.', ''],
@@ -115,7 +115,7 @@ module Glyph
 			# Substitute placeholders
 			ESCAPES.each{|e| @output.gsub! e[0], e[1]}
 			begin
-				@placeholders.each_pair do |key, value| 
+				@placeholders.each_pair do |key, value|
 					begin
 						@output.gsub! key.to_s, value.call(self).to_s
 					rescue Glyph::MacroError => e
@@ -153,5 +153,5 @@ module Glyph
 		end
 
 	end
-	
+
 end

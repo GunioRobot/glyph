@@ -7,8 +7,8 @@ book[
 			include[preface]
 		]
 	]
-  @bodymatter[  
-    chapter[ 
+  @bodymatter[
+    chapter[
 			@title[Chapter 1]
 			todo[Write chapter 1]
       include[chapter_1]

@@ -10,7 +10,7 @@ module Glyph
 
 		# Initializes the parser.
 		# @param [String] text the text to parse
-		# @param [String] source_name the name of the source file (stored in the root node) 
+		# @param [String] source_name the name of the source file (stored in the root node)
 		# @since 0.3.0
 		def initialize(text, source_name="--")
 			@source_name = source_name || "--"
@@ -40,12 +40,12 @@ module Glyph
 		protected
 
 		def parse_contents(current)
-			escape_sequence(current) || 
-				parameter_delimiter(current) || 
-				escaping_attribute(current) || 
-				escaping_macro(current) || 
-				attribute(current) || 
-				macro(current) || 
+			escape_sequence(current) ||
+				parameter_delimiter(current) ||
+				escaping_attribute(current) ||
+				escaping_macro(current) ||
+				attribute(current) ||
+				macro(current) ||
 				text(current)
 		end
 
@@ -60,15 +60,15 @@ module Glyph
 				name.chop!
 				error "#{name}[...] - A macro cannot start with '@' or a digit." if name.match(/^[0-1@]/)
 				node = create_node(MacroNode, {
-					:name => name.to_sym, 
-					:escape => true, 
-					:attributes => [], 
+					:name => name.to_sym,
+					:escape => true,
+					:attributes => [],
 					:parameters => []
 				})
 				while contents = parse_escaped_contents(node) do
 					node << contents unless contents.is_a?(AttributeNode)
 				end
-				@input.scan(/\=\]/) or error "Escaping macro '#{name}' not closed"		
+				@input.scan(/\=\]/) or error "Escaping macro '#{name}' not closed"
 				organize_children_for node
 				node
 			else
@@ -81,14 +81,14 @@ module Glyph
 				error "Attributes cannot be nested" if @current_attribute
 				name = @input.matched[1..@input.matched.length-3]
 				node = create_node(AttributeNode, {
-					:escape => true, 
+					:escape => true,
 					:name => name.to_sym
 				})
 				while contents = parse_escaped_contents(node) do
 					node << contents
 				end
 				current[:attributes] << node
-				@input.scan(/\=\]/) or error "Attribute @#{name} not closed"		
+				@input.scan(/\=\]/) or error "Attribute @#{name} not closed"
 				node
 			else
 				nil
@@ -101,15 +101,15 @@ module Glyph
 				name.chop!
 				error "#{name}[...] - A macro cannot start with '@' or a digit." if name.match(/^[0-1@]/)
 				node = create_node(MacroNode, {
-					:escape => false, 
-					:name => name.to_sym, 
-					:attributes => [], 
+					:escape => false,
+					:name => name.to_sym,
+					:attributes => [],
 					:parameters => []
 				})
 				while contents = parse_contents(node) do
 					node << contents unless contents.is_a?(AttributeNode)
 				end
-				@input.scan(/\]/) or error "Macro '#{name}' not closed"		
+				@input.scan(/\]/) or error "Macro '#{name}' not closed"
 				organize_children_for node
 				node
 			else
@@ -122,14 +122,14 @@ module Glyph
 				error "Attributes cannot be nested" if current.is_a?(AttributeNode)
 				name = @input.matched[1..@input.matched.length-2]
 				node = create_node(AttributeNode, {
-					:escape => false, 
+					:escape => false,
 					:name => name.to_sym
 				})
 				while contents = parse_contents(node) do
 					node << contents
 				end
 				current[:attributes] << node
-				@input.scan(/\]/) or error "Attribute @#{name} not closed"		
+				@input.scan(/\]/) or error "Attribute @#{name} not closed"
 				node
 			else
 				nil
@@ -154,7 +154,7 @@ module Glyph
 		def escaped_text(current)
 			start_p = @input.pos
 			res = @input.scan_until /(\\.)|(\A(\=\]|\|)|[^\\](\=\]|\|)|\Z)/
-				case 
+				case
 				when @input.matched.match(/^[^\\]\=\]$/) then
 					offset = 2
 				when @input.matched.match(/^[^\\]\|$/) then
@@ -181,7 +181,7 @@ module Glyph
 				# Parameters are not allowed outside macros or inside attributes
 				if current.is_a?(DocumentNode) || current.is_a?(AttributeNode) then
 					@input.pos = @input.pos-1
-					error "Parameter delimiter '|' not allowed here"  
+					error "Parameter delimiter '|' not allowed here"
 				end
 				create_node SyntaxNode, :parameter => true
 			else
@@ -237,11 +237,11 @@ module Glyph
 			node[:parameters].each do |p|
 				node << p
 			end
-			empty_parameter = 
-				node.children.length == 1 && 
-				((node&0).children.length == 0 || 
+			empty_parameter =
+				node.children.length == 1 &&
+				((node&0).children.length == 0 ||
 				 (node&0).children.length == 0 &&
-				 (node&0&0).is_a?(TextNode) && 
+				 (node&0&0).is_a?(TextNode) &&
 				 (node&0&0)[:value].blank?)
 			node.children.clear if empty_parameter
 			node.delete(:parameters)
@@ -256,7 +256,7 @@ module Glyph
 			illegal_delimiter = $1 || $2
 			if illegal_delimiter then
 				@input.pos = start_p + string.index(illegal_delimiter)
-				error "Macro delimiter '#{illegal_delimiter}' not escaped" 
+				error "Macro delimiter '#{illegal_delimiter}' not escaped"
 			end
 		end
 

@@ -48,7 +48,7 @@ module Glyph
 					if n == 0 then
 						no_parameters options
 					else
-						@node.params.length <= n 
+						@node.params.length <= n
 					end
 				end
 			end
@@ -72,7 +72,7 @@ module Glyph
 					if n == 0 then
 						no_parameters options
 					else
-						@node.params.length == n 
+						@node.params.length == n
 					end
 				end
 			end
@@ -82,7 +82,7 @@ module Glyph
 			# @option options :level the error level (:error, :warning)
 			# @return [Boolean] whether the validation passed or not
 			def no_parameters(options={:level=>:error})
-				validate("Macro '#{@name}' takes no parameters (#{@node.params.length} given)", options) do 
+				validate("Macro '#{@name}' takes no parameters (#{@node.params.length} given)", options) do
 					case @node.params.length
 					when 0 then
 						true
@@ -117,20 +117,20 @@ module Glyph
 					if n.is_a?(Glyph::MacroNode) && Glyph::MACROS[n[:name]] == Glyph::MACROS[@name] then
 						case check_type
 						when :attribute then
-							check_value = n.children.select do |node| 
+							check_value = n.children.select do |node|
 								node.is_a?(Glyph::AttributeNode) && node[:name] == arg
 							end[0][:value] rescue nil
-							check_value == attr(arg) 
+							check_value == attr(arg)
 						when :parameter then
-							check_value = n.children.select do |node| 
+							check_value = n.children.select do |node|
 								node.is_a?(Glyph::ParameterNode) && node[:name] == :"#{arg}"
 							end[0][:value] rescue nil
-							check_value == param(arg) 
+							check_value == param(arg)
 						end
 					end
 				end
 				if found then
-					macro_error "Mutual Inclusion in #{check_type}(#{arg}): '#{check_value}'", Glyph::MutualInclusionError 
+					macro_error "Mutual Inclusion in #{check_type}(#{arg}): '#{check_value}'", Glyph::MutualInclusionError
 				end
 			end
 		end

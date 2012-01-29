@@ -20,7 +20,7 @@ module Glyph
 			@source = @node[:source][:name] rescue "--"
 		end
 
-		# Resets the name of the updated source (call before calling 
+		# Resets the name of the updated source (call before calling
 		# Macro#interpret)
 		# @param [String] name the source name
 		# @param [String] file the source file
@@ -28,7 +28,7 @@ module Glyph
 		def update_source(name, file=nil)
 			@updated_source = {:node => @node, :name => name, :file => file}
 		end
-		
+
 		# Returns a Glyph code representation of the specified parameter
 		# @param [Fixnum] n the index of the parameter
 		# @return [String, nil] the string representation of the parameter
@@ -130,7 +130,7 @@ module Glyph
 		def path
 			macros = []
 			@node.ascend do |n|
-				case 
+				case
 				when n.is_a?(Glyph::MacroNode) then
 					if n[:name] == :"|xml|" then
 						name = "xml[#{n[:element]}]"
@@ -153,7 +153,7 @@ module Glyph
 			end
 			macros.reverse.compact.join('/')
 		end
-		
+
 		# Returns a todo message to include in the document in case of errors.
 		# @param [String] message the message to include in the document
 		# @return [String] the resulting todo message
@@ -180,11 +180,11 @@ module Glyph
 		# @since 0.2.0
 		def macro_warning(msg, e=nil)
 			if e.is_a?(Glyph::MacroError) then
-				e.display 
+				e.display
 			else
 				message = "#{msg}\n    source: #{@source}\n    path: #{path}"
 				if Glyph.debug? then
-					message << %{\n#{"-"*54}\n#{@node.to_s.gsub(/\t/, ' ')}\n#{"-"*54}} 
+					message << %{\n#{"-"*54}\n#{@node.to_s.gsub(/\t/, ' ')}\n#{"-"*54}}
 					if e then
 						message << "\n"+"-"*20+"[ Backtrace: ]"+"-"*20
 						message << "\n"+e.backtrace.join("\n")
@@ -200,7 +200,7 @@ module Glyph
 		# @return [String] the interpreted output
 		def interpret(string)
 			if @node[:escape] then
-				result = string 
+				result = string
 			else
 				context = {}
 				context[:source] = @updated_source || @node[:source]
@@ -218,7 +218,7 @@ module Glyph
 		# @see Glyph::Document#placeholder
 		def placeholder(&block)
 			@node[:document].placeholder &block
-		end			
+		end
 
 		# @see Glyph::Document#bookmark
 		def bookmark(hash)
@@ -245,7 +245,7 @@ module Glyph
 			block = Glyph::MACROS[@name]
 			macro_error "Undefined macro '#@name'}" unless block
 			res = instance_exec(@node, &block).to_s
-			res.gsub!(/\\*([\[\]\|])/){"\\#$1"} 
+			res.gsub!(/\\*([\[\]\|])/){"\\#$1"}
 			res
 		end
 

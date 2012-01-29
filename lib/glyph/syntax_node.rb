@@ -5,7 +5,7 @@ module Glyph
 	# @since 0.3.0
 	class SyntaxNode < Node
 
-		# @return [String] an empty string 
+		# @return [String] an empty string
 		# @since 0.3.0
 		def to_s
 			""
@@ -36,11 +36,11 @@ module Glyph
 			self.children.each {|c| self[:value] << c.evaluate(context) }
 			self[:value]
 		end
-			
+
 	end
 
 	# A Glyph macro in Glyph Abstract Syntax Tree
-	# @since 0.3.0 
+	# @since 0.3.0
 	class MacroNode < SyntaxNode
 
 		# @return [String] a textual representation of the macro
@@ -63,9 +63,9 @@ module Glyph
 			children.select{|n| n.is_a? ParameterNode }
 		end
 
-		# 
+		#
 		# Returns the parameter syntax node at the specified index
-		# @param [Fixnum] n the index of the parameter 
+		# @param [Fixnum] n the index of the parameter
 		# @return [Glyph::ParameterNode, nil] a parameter node
 		# @since 0.3.0
 		def parameter(n)
@@ -79,12 +79,12 @@ module Glyph
 		end
 
 		# @return [Array<Glyph::AttributeNode>] an array of the child attribute nodes
-		# @since 0.3.0 
+		# @since 0.3.0
 		def attributes
 			children.select{|n| n.is_a? AttributeNode }
 		end
 
-		# Returns the attribute syntax node with the specified name  
+		# Returns the attribute syntax node with the specified name
 		# @param [Symbol] name the name of the attribute
 		# @return [Glyph::AttributeNode, nil] an attribute node
 		# @since 0.3.0
@@ -100,12 +100,12 @@ module Glyph
 		# Expands the macro corresponding to self[:name]
 		# @param [Glyph::MacroNode] context the context of the macro
 		# @return [String] the value of the macro
-		# @since 0.3.0 
+		# @since 0.3.0
 		def expand(context)
-			xml_element(context)	
+			xml_element(context)
 			self.merge!({
-				:source => context[:source], 
-				:document => context[:document], 
+				:source => context[:source],
+				:document => context[:document],
 				:info => context[:info],
 				:value => ""
 			})
@@ -119,19 +119,19 @@ module Glyph
 			name = self[:name].to_s
 			if !known_macro && name.match(/^=(.+)/) then
 				# Force tag name override if macro starts with a '='
-				name.gsub! /^=(.+)/, '\1' 
+				name.gsub! /^=(.+)/, '\1'
 			end
 			case
 				# Use XML syntax
 			when Glyph['language.set'] == 'xml' then
 				self[:element] = name
-				self[:name] = :"|xml|" 
+				self[:name] = :"|xml|"
 				# Fallback to XML syntax
 			when Glyph['language.options.xml_fallback'] then
 				unless known_macro then
 					self[:element] = name
 					self[:fallback] = true
-					self[:name] = :"|xml|" 
+					self[:name] = :"|xml|"
 				end
 			else
 				# Unknown macro
@@ -142,7 +142,7 @@ module Glyph
 	end
 
 	# A piece of text in Glyph Abstract Syntax Tree
-	# @since 0.3.0 
+	# @since 0.3.0
 	class TextNode < SyntaxNode
 
 		# @return [String] the text itself
@@ -153,17 +153,17 @@ module Glyph
 	end
 
 	# A Glyph macro parameter in Glyph Abstract Syntax Tree
-	# @since 0.3.0 
+	# @since 0.3.0
 	class ParameterNode < SyntaxNode
 
 		# @return [String] a textual representation of the parameter node
-		# @since 0.3.0 
+		# @since 0.3.0
 		def to_s
 			children.join
 		end
 
 		# @return [String] a textual representation of the parameter contents
-		# @since 0.3.0 
+		# @since 0.3.0
 		def contents
 			parent[:escape] ? ".[=#{children.join}=]" : children.join
 		end
@@ -172,7 +172,7 @@ module Glyph
 		# @param [Hash] options a hash of options
 		# @option options [Boolean] :params whether to evaluate child nodes or not
 		# @return [String] the evaluated child nodes
-		# @since 0.3.0 
+		# @since 0.3.0
 		def evaluate(context, options={:params => false})
 			self[:value] = ""
 			self.children.each {|c| self[:value] << c.evaluate(context) } if options[:params]
@@ -182,18 +182,18 @@ module Glyph
 	end
 
 	# A Glyph macro attribute in Glyph Abstract Syntax Tree
-	# @since 0.3.0 
+	# @since 0.3.0
 	class AttributeNode < SyntaxNode
 
 		# @return [String] a textual representation of the attribute node
-		# @since 0.3.0 
+		# @since 0.3.0
 		def to_s
 			e = self[:escape] ? "=" : ""
 			"@#{self[:name]}["+e+children.join+e+"]"
 		end
 
 		# @return [String] a textual representation of the attribute contents
-		# @since 0.3.0 
+		# @since 0.3.0
 		def contents
 			self[:escape] ? ".[=#{children.join}=]" : children.join
 		end
@@ -202,7 +202,7 @@ module Glyph
 		# @param [Hash] options a hash of options
 		# @option options [Boolean] :attrs whether to evaluate child nodes or not
 		# @return [String] the evaluated child nodes
-		# @since 0.3.0 
+		# @since 0.3.0
 		def evaluate(context, options={:attrs => false})
 			self[:value] = ""
 			self.children.each {|c| self[:value] << c.evaluate(context) } if options[:attrs]

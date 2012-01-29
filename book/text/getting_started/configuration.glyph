@@ -39,10 +39,10 @@ Glyph attempts to "guess" the data type of a configuration value by evaluation (
 * is _true_ or _false_ &rarr; @Boolean@
 * is _nil_ &rarr; @NilClass@
 
-Note that this guessing is far from being foolproof: If you type something like _{:test, 2}_, for example, you'll get an error. 
+Note that this guessing is far from being foolproof: If you type something like _{:test, 2}_, for example, you'll get an error.
 	]
 
-There are plenty of configuration settings that can be modified, but most of them are best if left alone (and in the System Configuration file). 
+There are plenty of configuration settings that can be modified, but most of them are best if left alone (and in the System Configuration file).
 
 For a complete reference, see =>[#cfg_ref]. For everyday use, you may just want to change the settings defined in the =>[#cfg_document] namespace.
 	] --[End textile]

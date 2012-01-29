@@ -7,12 +7,12 @@ section[
 	highlight[=ruby|
 macro :fmi do
   topic, href = @params
-  link = placeholder do \|document\| 
+  link = placeholder do \|document\|
     interpret "link[#{href}]"
   end
   %{<span class="fmi">for more information on #{topic}, see #{link}</span>}
 end
-	=] 
+	=]
 
 	txt[
 When the @interpret@ method is called, the following happens:

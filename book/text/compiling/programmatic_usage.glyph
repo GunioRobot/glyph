@@ -6,7 +6,7 @@ Besides using Glyph from the command line, you can also use it straight from you
 * Filter text to HTML (using @Glyph#filter@)
 * Compile Glyph source files into HTML or PDF files (using @Glyph#compile@)
 
-That's pretty much it. Of course, both the @filter@ and @compile@ method cause Glyph to run in =>[#lite_mode|_lite_ mode], so the same =>[#lite_limitations|limitations] apply. 
+That's pretty much it. Of course, both the @filter@ and @compile@ method cause Glyph to run in =>[#lite_mode|_lite_ mode], so the same =>[#lite_limitations|limitations] apply.
 	]
 	tip[
 		txt[

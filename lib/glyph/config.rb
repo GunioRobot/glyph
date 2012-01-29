@@ -28,7 +28,7 @@ module Glyph
 		# Resets all configuration data
 		# @param [Hash] hash the new configuration data to store
 		# @raise [RuntimeError] unless the configuration is resettable or if no hash is passed
-		# @return [Hash] Configuration data 
+		# @return [Hash] Configuration data
 		def reset(hash={})
 			raise RuntimeError, "Configuration cannot be reset" unless @options[:resettable]
 			raise RuntimeError, "Configuration data is not stored in a Hash" unless hash.is_a? Hash
@@ -46,7 +46,7 @@ module Glyph
 		# Merges configuration data by applying Hash#merge to each sub-hash of data, recursively.
 		# @param [Glyph::Config] cfg the configuration to merge with
 		# @raise [ArgumentError] unless cfg is a Glyph::Config
-		# @return [Glyph::Config] a new merged configuration 
+		# @return [Glyph::Config] a new merged configuration
 		def merge(cfg)
 			merge_or_update cfg, :merge
 		end
@@ -58,7 +58,7 @@ module Glyph
 		# @raise [RuntimeError] if self is not linked to a file or if the file does not contain a serialized Hash
 		def read
 			raise RuntimeError, "Configuration is not stored in a file." if @file.blank?
-			if @file.exist? then 
+			if @file.exist? then
 				contents = yaml_load @file
 				raise RuntimeError, "Invalid configuration file '#{@file}'" unless contents.is_a? Hash
 				@data = contents
@@ -70,7 +70,7 @@ module Glyph
 
 		# Updates a configuration setting
 		# @param [String, Symbol] setting the setting to update
-		# @param [Object] value the value to store. Where applicable (Array, Hash, Boolean, Nil), attempts 
+		# @param [Object] value the value to store. Where applicable (Array, Hash, Boolean, Nil), attempts
 		# 	to evaluate string values
 		# @return [Object] the new value
 		# @raise [RuntimeError] unless the configuration is mutable
@@ -90,7 +90,7 @@ module Glyph
 			count = 1
 			path.each do |s|
 				if hash.has_key? s then
-					if count == path.length then 
+					if count == path.length then
 						# destination
 						hash[s] = value
 					else

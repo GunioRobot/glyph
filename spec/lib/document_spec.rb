@@ -100,7 +100,7 @@ describe Glyph::Document do
 		define_em_macro
 		define_ref_macro
 		text = %{em[ref[link with ref[fake \\| parameter|.]|.]]}
-		# Nevermind the absurdity. It's just to test that the escaped pipes 
+		# Nevermind the absurdity. It's just to test that the escaped pipes
 		# are handled properly.
 		result = %{<em><a href="link with <a href="fake | parameter">.</a>">.</a></em>}
 		tree = create_tree text

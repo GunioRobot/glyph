@@ -74,7 +74,7 @@ class Node < Hash
 	# See Node#child.
 	def &(index)
 	 	@children[index]
-	end	
+	end
 
 	# Iterates through children
 	# @yieldparam [Node] c the child node
@@ -91,12 +91,12 @@ class Node < Hash
 	def descend(element=nil, level=0, &block)
 		element ||= self
 		yield element, level
-		element.each_child do |c| 
-			descend c, level+1, &block 
+		element.each_child do |c|
+			descend c, level+1, &block
 		end
 	end
 
-	# Descend children until the block returns something. 
+	# Descend children until the block returns something.
 	# 	Each child is passed to the block.
 	# @param [Proc] &block the block to call on each child
 	# @return [Node, nil] returns the child node if found, nil otherwise
@@ -109,7 +109,7 @@ class Node < Hash
 		nil
 	end
 
-	# Ascend parents until the block returns something. 
+	# Ascend parents until the block returns something.
 	# 	Each parent is passed to the block.
 	# @param [Proc] &block the block to call on each parent
 	# @return [Node, nil] returns the parent node if found, nil otherwise
@@ -151,7 +151,7 @@ class Node < Hash
 		end
 		string.chomp
 	end
-	
+
 	# @return (Boolean) true if the nodes are equal
 	# @since 0.3.0
 	def ==(node)

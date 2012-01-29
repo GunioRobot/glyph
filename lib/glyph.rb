@@ -68,12 +68,12 @@ module Glyph
 	begin
 		unless const_defined? :MODE then
 			MODE = {
-				:debug => false, 
-				:lite => false, 
-				:test => false, 
+				:debug => false,
+				:lite => false,
+				:test => false,
 				:library => false,
 				:safe => false
-			} 
+			}
 		end
 	rescue
 	end
@@ -99,26 +99,26 @@ module Glyph
 	CONFIG = Glyph::Config.new :resettable => true, :mutable => false
 
 	home_dir = Pathname.new(RUBY_PLATFORM.match(/win32|mingw/) ? ENV['HOMEPATH'] : ENV['HOME'])
-	SYSTEM_CONFIG = 
+	SYSTEM_CONFIG =
 		Glyph::Config.new(:file => HOME/'config.yml')
-	GLOBAL_CONFIG = 
+	GLOBAL_CONFIG =
 		Glyph.test? ? Glyph::Config.new(:file => SPEC_DIR/'.glyphrc') : Glyph::Config.new(:file => home_dir/'.glyphrc')
-	PROJECT_CONFIG = 
+	PROJECT_CONFIG =
 		Glyph::Config.new(:file => PROJECT/'config.yml', :resettable => true) rescue Glyph::Config.new(:resettable => true, :mutable => true)
 
 	# Loads all Rake tasks
 	def self.setup
 		FileList["#{TASKS_DIR}/**/*.rake"].each do |f|
 			load f
-		end	
+		end
 	end
 
-	# Used to access @@document 
+	# Used to access @@document
 	def self.document
 		@@document
 	end
 
-	# Used to set @@document 
+	# Used to set @@document
 	def self.document=(document)
 		@@document = document
 	end
@@ -151,7 +151,7 @@ module Glyph
 	# Returns true if the PROJECT constant is set to a valid Glyph project directory
 	def self.project?
 		children = ["text", "output", "snippets.yml", "config.yml", "document.glyph"].sort
-		actual_children = PROJECT.children.map{|c| c.basename.to_s}.sort 
+		actual_children = PROJECT.children.map{|c| c.basename.to_s}.sort
 		(actual_children & children) == children
 	end
 
@@ -228,9 +228,9 @@ module Glyph
 			require 'glyph/commands'
 			self['system.quiet'] = true
 			self.library_mode = true
-			GLI.run ["compile", src.to_s, out].compact	
+			GLI.run ["compile", src.to_s, out].compact
 		rescue Exception => e
-			raise 
+			raise
 		ensure
 			Dir.chdir pwd
 			self.library_mode = false
@@ -241,7 +241,7 @@ module Glyph
 
 	# Converts a text containing Glyph markup language into the current Glyph output target.
 	#
-	# *Note* Only 'html' is supported as output target for now. 
+	# *Note* Only 'html' is supported as output target for now.
 	# @param [String] text the text to convert
 	# @return [String] the converted text
 	# @example
@@ -257,7 +257,7 @@ module Glyph
 			self.run 'load:all'
 			result = Interpreter.new(text).document.output
 		rescue Exception => e
-			raise 
+			raise
 		ensure
 			self.lite_mode = false
 			self.library_mode = false
@@ -290,7 +290,7 @@ module Glyph
 	def self.error(message)
 		puts "=> error: #{message}" unless Glyph['system.quiet']
 	end
-	
+
 	# Prints a message if running in debug mode
 	# @param [String] message the message to print
 	def self.debug(message)

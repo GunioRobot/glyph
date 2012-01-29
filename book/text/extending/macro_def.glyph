@@ -21,7 +21,7 @@ macro :note do
 end
 	=]
 	txt[
-The @macro@ method takes a single @Symbol@ or @String@ parameter, corresponding to the name of the macro. In this case, the entire block (or _body_ of the macro) is a @String@ corresponding to what we want the macro to evaluate to: a @<div>@ tag containing a note. 
+The @macro@ method takes a single @Symbol@ or @String@ parameter, corresponding to the name of the macro. In this case, the entire block (or _body_ of the macro) is a @String@ corresponding to what we want the macro to evaluate to: a @<div>@ tag containing a note.
 
 The body of the macro is evaluated in the context of the class[Glyph::Macro] class, therefore its instance variables (like code[@name] or code[@value]) can be used directly.
 
@@ -42,7 +42,7 @@ The following table lists all the instance variables that can be used inside mac
 				txt[
 A class[Glyph::MacroNode] containing information about the macro. Useful for accessing parent and child macros, and the current class[Glyph::Document]. Normally, instances of the code[MacroNode] class contain the following keys:
 * @:name@, the name of the macro.
-* @:source@, a @String@ identifying the source of the macro (a file, a snippet, etc.) 
+* @:source@, a @String@ identifying the source of the macro (a file, a snippet, etc.)
 * @:value@, the value of the macro (populated after the document has been parsed and analyzed).
 * @:escape@, whether the macro is a =>[#esc_quot|quoting macro] or not.
 * @:document@, the instance of code[Document] the macro is contained in (populated after the document has been parsed and analyzed).

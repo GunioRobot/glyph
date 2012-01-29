@@ -26,4 +26,4 @@ The code[snippet.yml] file contains invalid data. Most likely, it does not evalu
 Returned if the name of an existing file was specified as a parameter for the #>[add].
 		]
 	]
-] 
+]

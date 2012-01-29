@@ -90,7 +90,7 @@ end
 macro :examples do
 	%{
 <div class="examples">
-<p><strong>Examples:</strong></p> 
+<p><strong>Examples:</strong></p>
 #{value.split("\n").map{|i| "<code>#{i}</code><br />"}.to_s}
 </div>
 	}

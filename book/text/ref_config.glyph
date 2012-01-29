@@ -17,7 +17,7 @@ The name of the output file.
 The format of the output file. It can be set to any value stored in the $>[document.output_targets].
 		]
 		ref_config[document.output_targets|
-An @Array@ containing all the possible output formats. This setting should not be changed by the user. 
+An @Array@ containing all the possible output formats. This setting should not be changed by the user.
 		]
 		ref_config[document.revision|
 The document's revision.
@@ -40,7 +40,7 @@ section[
 	@id[cfg_filters]
 	config_table[
 		ref_config[filters.by_file_extension|
-If set to @true@, a filter macro is applied to included files, based on their extensions (\.fmi[including files|#incl]).  
+If set to @true@, a filter macro is applied to included files, based on their extensions (\.fmi[including files|#incl]).
 		]
 		ref_config[filters.markdown.converter|
 The name of the markdown converter to use with the %>[markdown]. It can be set to one of the following values:
@@ -49,7 +49,7 @@ The name of the markdown converter to use with the %>[markdown]. It can be set t
 * Maruku
 * Kramdown
 
-If not set, Glyph tests for the presence of each gem in the same order, until one is found. 
+If not set, Glyph tests for the presence of each gem in the same order, until one is found.
 		]
 		ref_config[filters.coderay.*|
 Some &[coderay]-specific =>[http://coderay.rubychan.de/doc/classes/CodeRay/Encoders/HTML.html|options].
@@ -58,10 +58,10 @@ Some &[coderay]-specific =>[http://coderay.rubychan.de/doc/classes/CodeRay/Encod
 The current highlighter to use. It can be set to @coderay@ or @ultraviolet@
 		]
 		ref_config[filters.redcloth.restrictions|
-An @Array@ containing restrictions applied to RedCloth, used by the %>[textile] (see =>[http://redcloth.rubyforge.org/classes/RedCloth/TextileDoc.html|RedCloth Documentation] for more information). 
+An @Array@ containing restrictions applied to RedCloth, used by the %>[textile] (see =>[http://redcloth.rubyforge.org/classes/RedCloth/TextileDoc.html|RedCloth Documentation] for more information).
 		]
 		ref_config[filters.target|
-The output target for filters. It can be set to @html@ (for RedCloth and MarkDown) or @latex@ (RedCloth-only). 
+The output target for filters. It can be set to @html@ (for RedCloth and MarkDown) or @latex@ (RedCloth-only).
 		]
 		ref_config[filters.ultraviolet.line_numbers|
 Whether the &[uv] highlighter should display line numbers or not.
@@ -70,7 +70,7 @@ Whether the &[uv] highlighter should display line numbers or not.
 The theme used by the &[uv] highlighter.
 		]
 	]
-] 
+]
 
 section[
 	@title[language.*]

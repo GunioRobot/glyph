@@ -115,10 +115,10 @@ sup {
 	text-align: center;
 }
 
-.note, 
-.important, 
-.tip, 
-.caution, 
+.note,
+.important,
+.tip,
+.caution,
 .box {
 	border: 1px solid #E6E6E6;
 	display: block;
@@ -128,13 +128,13 @@ sup {
 	background: #EEE;
 	color: #1F1F1F;
 }
-.note>p, 
-.important>p, 
-.tip>p, 
+.note>p,
+.important>p,
+.tip>p,
 .caution>p {
 	margin: 0;
 	padding: 0;
-}	
+}
 .note-title {
 	font-weight: bold;
 	margin-right: 1em;

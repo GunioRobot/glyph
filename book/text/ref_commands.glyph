@@ -35,7 +35,7 @@ section[
 	]
 	options[
 		-o[source|
-The source file to compile. 
+The source file to compile.
 			default[document.glyph]
 	]
 		-o[format|

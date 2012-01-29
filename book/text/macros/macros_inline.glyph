@@ -1,6 +1,6 @@
 section[
 	@title[Inline Macros]
-	
+
 	ref_macro[
 		@n[anchor]
 		@desc[Creates a named anchor (or bookmark).]

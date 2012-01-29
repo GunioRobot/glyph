@@ -107,6 +107,6 @@ By default, the following tags are blacklisted and will be ignored:
 
 tip[You can change this list by modifying the $>[language.options.xml_blacklist].]
 		]
- 
+
 	]
 ]

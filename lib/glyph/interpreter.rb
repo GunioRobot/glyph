@@ -1,5 +1,5 @@
 module Glyph
-	
+
 	# A Glyph::Interpreter object perform the following actions:
 	# * Parses a string of text containing Glyph macros
 	# * Creates a document based on the parsed syntax tree
@@ -47,7 +47,7 @@ module Glyph
 			@document.inherit_from @context[:document] if @context[:document]
 			@tree
 		end
-	
+
 	end
 end
 

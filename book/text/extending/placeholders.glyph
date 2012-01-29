@@ -1,7 +1,7 @@
 section[
 	@title[Using Placeholders]
 	txt[
-Sometimes you may need to access some data that will not be available until the entire document has been fully parsed and analyzed. For example, in order to be able to validate internal links, it is necessary to know in advance if the bookmark ID referenced in the link exists or not, either before (that's easy) or even _after_ the link. 
+Sometimes you may need to access some data that will not be available until the entire document has been fully parsed and analyzed. For example, in order to be able to validate internal links, it is necessary to know in advance if the bookmark ID referenced in the link exists or not, either before (that's easy) or even _after_ the link.
 
 Here's the source code of the %>[link]:
 	]
@@ -15,7 +15,7 @@ macro :link do
       title \|\|= bmk[:title]
     else
       plac = placeholder do \|document\|
-        macro_error "Bookmark '#{anc}' does not exist" unless document.bookmarks[anc] 
+        macro_error "Bookmark '#{anc}' does not exist" unless document.bookmarks[anc]
         document.bookmarks[anc][:title]
       end
       title \|\|= plac

@@ -21,7 +21,7 @@ section[
 	ref_macro[
 		@n[comment]
 		@desc[
-Evaluates to nothing. Used to add comments in a Glyph document that will not be displayed in output files. 
+Evaluates to nothing. Used to add comments in a Glyph document that will not be displayed in output files.
 		]
 		@aliases[--]
 		@params[-p[0|The contents to comment out]]
@@ -55,7 +55,7 @@ For examples see any of the following:
 		@aliases[$]
 		@example[=$[document.author]=]
 		@params[
-			-p[0|The full name of a configuration setting.]	
+			-p[0|The full name of a configuration setting.]
 		]
 	]
 
@@ -66,11 +66,11 @@ For examples see any of the following:
 		@example[=$:[document.draft\|true]=]
 		@remarks[&[unsafe]]
 		@params[
-			-p[0|The full name of a configuration setting.]	
-			-p[0|The new value of the configuration setting]	
+			-p[0|The full name of a configuration setting.]
+			-p[0|The new value of the configuration setting]
 		]
 	]
-	
+
 	ref_macro[
 		@n[eq]
 		@desc[Conditional equality operator, to be used with the %>[condition].]
@@ -135,7 +135,7 @@ Checks a string against a regular expression.
 			-p[1|The macro definition (Ruby code).]
 		]
 	]
-		
+
 	ref_macro[
 		@n[not]
 		@desc[Conditional @not@ operator, to be used with the %>[condition].]

@@ -6,7 +6,7 @@ section[
 * code[=%[Time.now]=] &rarr; %[Time.now]
 * code[=%[Glyph::VERSION]=] &rarr; %[Glyph::VERSION]
 
-The scope for the code evaluation is the Kernel module, (with all inclusions required by Glyph itself). 
+The scope for the code evaluation is the Kernel module, (with all inclusions required by Glyph itself).
 
 Although it is possible to retrieve Glyph configuration settings in this way (e.g. code[=%[cfg('document.author')]=]), the %>[config] (aliased to @$@) makes things slightly simpler (e.g. code[=$[document.author]=]).
 	]

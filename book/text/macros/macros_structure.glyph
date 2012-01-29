@@ -97,4 +97,4 @@ section[
 		@example[=toc[1]=]
 		@params[-p[0|The maximum header depth of the TOC &[opt].]]
 	]
-] 
+]

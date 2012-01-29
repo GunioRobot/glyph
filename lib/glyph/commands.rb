@@ -32,7 +32,7 @@ command :compile do |c|
 	c.switch [:a, :auto]
 	c.action do |global_options, options, args|
 		raise ArgumentError, "Too many arguments" if args.length > 2
-		Glyph.lite_mode = true unless args.blank? 
+		Glyph.lite_mode = true unless args.blank?
 		Glyph.run! 'load:config'
 		original_config = Glyph::CONFIG.dup
 		output_targets = Glyph['system.output_targets']
@@ -50,10 +50,10 @@ command :compile do |c|
 			source_file  = Pathname.new args[0]
 			filename = source_file.basename(source_file.extname).to_s
 			destination_file = Pathname.new(args[1]) rescue nil
-			src_extension = Regexp.escape(source_file.extname) 
+			src_extension = Regexp.escape(source_file.extname)
 			dst_extension = ".#{Glyph['document.output']}"
 			destination_file ||= Pathname.new(source_file.to_s.gsub(/#{src_extension}$/, dst_extension))
-			raise ArgumentError, "Source file '#{source_file}' does not exist" unless source_file.exist? 
+			raise ArgumentError, "Source file '#{source_file}' does not exist" unless source_file.exist?
 			raise ArgumentError, "Source and destination file are the same" if source_file.to_s == destination_file.to_s
 			Glyph['document.filename'] = filename
 			Glyph['document.source'] = source_file.to_s
@@ -175,12 +175,12 @@ command :outline do |c|
 					puts text unless text.blank?
 				when n[:name] == :include then
 					if files && n.find_parent{|p| p[:name] == :document && p.is_a?(Glyph::MacroNode)} then
-						# When using the book or article macros, includes appear twice: 
+						# When using the book or article macros, includes appear twice:
 						# * in the macro parameters
 						# * as children of the document macro
-						puts "=== #{n.param(0)}" 
+						puts "=== #{n.param(0)}"
 					end
-				end	
+				end
 			end
 		end
 	end
@@ -212,7 +212,7 @@ command :config do |c|
 				# Remove all overrides
 				Glyph.config_reset
 				# Reload current project config
-				config.read 
+				config.read
 				config.set args[0], args[1]
 				# Write changes to file
 				config.write

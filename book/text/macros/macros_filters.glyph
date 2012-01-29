@@ -7,7 +7,7 @@ section[
 		@desc[
 Uses a Markdown converter (BlueCloth, RDiscount, Maruku or Kramdown) to transform the value into HTML if the $>[filters.target] is set to @html@.
 
-&[called_on_files] with a @.markdown@ or a @.md@ extension. 
+&[called_on_files] with a @.markdown@ or a @.md@ extension.
 		]
 		@aliases[md]
 		@example[=markdown[This is *emphasized* text.]=]
@@ -19,7 +19,7 @@ Uses a Markdown converter (BlueCloth, RDiscount, Maruku or Kramdown) to transfor
 		@desc[
 Uses the RedCloth gem to transform the value into HTML or LaTeX, depending on the value of the $>[filters.target].
 
-&[called_on_files] with a @.textile@ or a @.txt@ extension. 
+&[called_on_files] with a @.textile@ or a @.txt@ extension.
 		]
 		@aliases[txt]
 		@example[=textile[This is a *strong emphasis*.]=]
